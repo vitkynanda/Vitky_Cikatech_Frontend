@@ -109,14 +109,15 @@ export default {
           this.$swal.fire({
             icon: "error",
             title: "Oops..",
-            text: data.msg,
+            text: data.msg.charAt(0).toUpperCase() + data.msg.slice(1),
           });
           return;
         } else {
+          this.$cookies.set("token", data.token);
           localStorage.setItem("token", data.token);
           this.$swal.fire({
             icon: "success",
-            text: data.msg,
+            text: data.msg.charAt(0).toUpperCase() + data.msg.slice(1),
             showConfirmButton: false,
             timer: 1500,
           });

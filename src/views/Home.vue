@@ -35,8 +35,8 @@ export default {
   },
 
   mounted() {
-    if (localStorage.getItem("token")) {
-      this.token = localStorage.getItem("token");
+    if (this.$cookies.isKey("token")) {
+      this.token = this.$cookies.get("token");
     } else {
       this.$router.push("/login");
       return;
