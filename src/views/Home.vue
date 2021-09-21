@@ -57,7 +57,11 @@ export default {
           }
         );
         const data = await res.json();
-        this.posts = data.data.filter((post) => post.author === "testuser");
+        //manual filter akun yang saya buat test@mail.com / 12345678
+        //this.posts = data.data.filter((post) => post.author === "testuser");
+
+        //menampilkan semua post
+        this.posts = data.data;
         this.loading = false;
       } catch (e) {
         alert(e);
@@ -65,7 +69,7 @@ export default {
     },
     // endPoint getUser tidak bisa diakses
     // getUser() {
-    //   fetch("https://wong801-portfolio.herokuapp.com/api/getUser", {
+    //   fetch("https://wong801-portfolio.herokuapp.com/api/user/getUser", {
     //     method: "GET",
     //     headers: {
     //       Authorization: "Barear " + localStorage.getItem("token"),
