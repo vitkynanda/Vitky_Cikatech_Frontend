@@ -57,11 +57,12 @@ export default {
           }
         );
         const data = await res.json();
-        //manual filter akun yang saya buat test@mail.com / 12345678
+        //manual filter akun yang saya buat test@mail.com / 12345678 untuk login user post
         //this.posts = data.data.filter((post) => post.author === "testuser");
 
         //menampilkan semua post
         this.posts = data.data;
+
         this.loading = false;
       } catch (e) {
         alert(e);

@@ -151,14 +151,13 @@ export default {
 
   methods: {
     register() {
-      const { email, firstname, lastname, username } = this;
-      const { pass } = this.password;
+      const { email, firstname, lastname, username, password } = this;
       const details = {
         email: email,
         username: username,
         firstName: firstname,
         lastName: lastname,
-        password: pass,
+        password: password,
       };
       let formBody = [];
       for (const property in details) {
@@ -192,6 +191,7 @@ export default {
               });
               return;
             } else {
+              this.$cookie.set("token", data.token);
               localStorage.setItem("token", data.token);
               this.$swal.fire({
                 icon: "success",
